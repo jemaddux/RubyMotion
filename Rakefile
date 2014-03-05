@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#encoding: utf-8
 $:.unshift("/Library/RubyMotion/lib")
 require 'motion/project/template/ios'
 
