@@ -5,8 +5,9 @@ class HomeScreen < ProMotion::GroupedTableScreen
     [{
       title: "Manage Bills",
       cells: [
-        { title: "Bills",  action: :bills  },
-        { title: "People", action: :people }
+        { title: "Overview", action: :overview },
+        { title: "Bills",    action: :bills  },
+        { title: "People",   action: :people }
       ]
     }, {
       title: "Settings",
@@ -17,8 +18,16 @@ class HomeScreen < ProMotion::GroupedTableScreen
     }]
   end
 
+  def about
+    open AboutScreen
+  end
+
   def bills
     open BillsScreen
+  end
+
+  def overview
+    open OverviewScreen
   end
 
   def people
@@ -29,28 +38,6 @@ class HomeScreen < ProMotion::GroupedTableScreen
     open SettingsScreen
   end
 
-  def about
-    open AboutScreen
-  end
-
-  # def on_load
-  #   # set_toolbar_items [
-  #   #   { system_item: :flexible_space },
-  #   #   { title: "Bills",
-  #   #     action: :bills },
-  #   #   { system_item: :flexible_space },
-  #   #   { title: "People",
-  #   #     action: :people
-  #   #     # target: some_other_object
-  #   #   },
-  #   #   { system_item: :flexible_space },
-  #   #   { title: "Settings",
-  #   #     action: :settings },
-  #   #   { system_item: :flexible_space }
-  #   # ]
-  # end
-
   def will_appear
   end
-
 end
