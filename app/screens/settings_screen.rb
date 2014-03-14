@@ -6,5 +6,4 @@ class SettingsScreen < PM::Screen
 
   def will_appear
   end
-
 end

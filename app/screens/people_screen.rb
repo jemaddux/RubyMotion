@@ -6,5 +6,4 @@ class PeopleScreen < PM::Screen
 
   def will_appear
   end
-
 end
