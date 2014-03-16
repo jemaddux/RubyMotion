@@ -62,8 +62,10 @@ class AddBillScreen < PM::Screen
   end
 
   def create_bill
+    @bill = Bill.create(:name => @name.text, :amount => @amount.text.to_f)
+
     @alert_box = UIAlertView.alloc.initWithTitle("Bill Saved",
-        message:"#{@amount.text.to_i}",
+        message:"Bill: #{@name.text} for amount: $#{@amount.text.to_i}",
         delegate: nil,
         cancelButtonTitle: "ok",
         otherButtonTitles:nil)

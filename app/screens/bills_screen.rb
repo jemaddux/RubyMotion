@@ -9,8 +9,8 @@ class BillsScreen < ProMotion::GroupedTableScreen
   def cells
     @cells ||= begin
       cellz = [{ title: "Add bill",  action: :add_bill  }]
-      50.times do |x|
-        cellz << { title: "Bill name", action: :view_bill }
+      Bill.each do |bill|
+        cellz << { title: "#{bill.name}: #{bill.amount}", action: :view_bill }
       end
       cellz
     end
