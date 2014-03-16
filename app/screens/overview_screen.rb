@@ -1,5 +1,5 @@
-class SettingsScreen < PM::Screen
-  title "Settings"
+class OverviewScreen < PM::Screen
+  title "Overview"
 
   def on_load
     self.view.backgroundColor = UIColor.whiteColor
