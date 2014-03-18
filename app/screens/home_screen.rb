@@ -6,8 +6,9 @@ class HomeScreen < ProMotion::GroupedTableScreen
       title: "manage_bills"._,
       cells: [
         { title: "overview"._, action: :overview },
-        { title: "bills"._,    action: :bills  },
-        { title: "people"._,   action: :people }
+        { title: "bills"._,    action: :bills    },
+        { title: "people"._,   action: :people   },
+        { title: "Payments",   action: :payments }
       ]
     }, {
       title: "settings"._,
@@ -28,6 +29,10 @@ class HomeScreen < ProMotion::GroupedTableScreen
 
   def overview
     open OverviewScreen
+  end
+
+  def payments
+    open PaymentsScreen
   end
 
   def people
