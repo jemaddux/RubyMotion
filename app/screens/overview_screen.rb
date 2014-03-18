@@ -4,8 +4,8 @@ class OverviewScreen < PM::Screen
   def on_load
     self.view.backgroundColor = UIColor.whiteColor
     amount_outstanding
-    people_who_owe_money
-    reminder_button
+    # people_who_owe_money
+    # reminder_button
   end
 
   def amount_outstanding

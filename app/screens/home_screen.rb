@@ -7,16 +7,17 @@ class HomeScreen < ProMotion::GroupedTableScreen
       cells: [
         { title: "overview"._, action: :overview },
         { title: "bills"._,    action: :bills    },
-        { title: "people"._,   action: :people   },
+        # { title: "people"._,   action: :people   },
         { title: "Payments",   action: :payments }
       ]
-    }, {
-      title: "settings"._,
-      cells: [
-        { title: "settings"._, action: :settings },
-        { title: "about"._,    action: :about    }
-      ]
     }]
+    # , {
+    #   title: "settings"._,
+    #   cells: [
+    #     { title: "settings"._, action: :settings },
+    #     { title: "about"._,    action: :about    }
+    #   ]
+    # }]
   end
 
   def about
