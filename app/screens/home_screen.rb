@@ -1,19 +1,19 @@
 class HomeScreen < ProMotion::GroupedTableScreen
-  title "Home"
+  title "app_name"._
 
   def table_data
     [{
-      title: "Manage Bills",
+      title: "manage_bills"._,
       cells: [
-        { title: "Overview", action: :overview },
-        { title: "Bills",    action: :bills  },
-        { title: "People",   action: :people }
+        { title: "overview"._, action: :overview },
+        { title: "bills"._,    action: :bills  },
+        { title: "people"._,   action: :people }
       ]
     }, {
-      title: "Settings",
+      title: "settings"._,
       cells: [
-        { title: "Settings", action: :settings },
-        { title: "About",    action: :about    }
+        { title: "settings"._, action: :settings },
+        { title: "about"._,    action: :about    }
       ]
     }]
   end

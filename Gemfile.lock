@@ -13,6 +13,7 @@ GEM
       bubble-wrap (>= 1.3.0)
       motion-support (>= 0.1.0)
     rake (10.1.1)
+    sugarcube (1.5.4)
 
 PLATFORMS
   ruby
@@ -21,3 +22,4 @@ DEPENDENCIES
   ProMotion (~> 1.1.2)
   motion_model
   rake
+  sugarcube
