@@ -10,7 +10,15 @@ class OverviewScreen < PM::Screen
 
   def amount_outstanding
     @amount = UILabel.alloc.initWithFrame([[30, 80], [400, 40]])
-    @amount.text = "Amount Outstanding: $20,000"
+    bill_total = 0
+    Bill.each do |bill|
+      bill_total += bill.amount
+    end
+    payments_total = 0
+    Payment.each do |payment|
+      payments_total += payment.amount
+    end
+    @amount.text = "Amount Outstanding: $#{bill_total - payments_total}"
     self.view.addSubview(@amount)
   end
 
