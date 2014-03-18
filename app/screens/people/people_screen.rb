@@ -2,17 +2,16 @@ class PeopleScreen < ProMotion::GroupedTableScreen
   title "People"
 
   def table_data
-    [{cells: cells
-    }]
+    [{cells: cells}]
   end
 
   def cells
     @cells ||= begin
-      cellz = [{ title: "Add person",  action: :add_person  }]
-      50.times do |x|
-        cellz << { title: "Person name", action: :view_person }
+      cz = [{ title: "Add person",  action: :add_person  }]
+      Person.each do |person|
+        cz << { title: "#{person.name}", action: :view_person }
       end
-      cellz
+      cz
     end
   end
 
@@ -21,7 +20,7 @@ class PeopleScreen < ProMotion::GroupedTableScreen
   end
 
   def view_person(person_id)
-    open ViewBillScreen
+    open ViewPersonScreen
   end
 
   def will_appear
