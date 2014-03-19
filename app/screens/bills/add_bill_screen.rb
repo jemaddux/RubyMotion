@@ -6,11 +6,11 @@ class AddBillScreen < PM::Screen
 
     name_row
     amount_row
-    people_row
+    # people_row
 
     @save = UIButton.buttonWithType(UIButtonTypeRoundedRect)
     @save.setTitle("Save", forState: UIControlStateNormal)
-    @save.frame = [[100, 250], [100, 50]]
+    @save.frame = [[100, 190], [100, 50]]
     @save.addTarget(self,
       action: :create_bill,
       forControlEvents: UIControlEventTouchUpInside)
@@ -65,11 +65,13 @@ class AddBillScreen < PM::Screen
     @bill = Bill.create(:name => @name.text, :amount => @amount.text.to_f)
 
     @alert_box = UIAlertView.alloc.initWithTitle("Bill Saved",
-        message:"Bill: #{@name.text} for amount: $#{@amount.text.to_i}",
+        message:"Bill: #{@name.text} for amount: $#{@amount.text.to_f.round(2)}",
         delegate: nil,
         cancelButtonTitle: "ok",
         otherButtonTitles:nil)
     @alert_box.show
+    @name.text = ""
+    @amount.text = ""
   end
 
   def will_appear

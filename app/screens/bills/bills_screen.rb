@@ -2,15 +2,14 @@ class BillsScreen < ProMotion::GroupedTableScreen
   title "Bills"
 
   def table_data
-    [{cells: cells
-    }]
+    [{cells: cells}]
   end
 
   def cells
     @cells ||= begin
       cellz = [{ title: "Add bill",  action: :add_bill  }]
       Bill.each do |bill|
-        cellz << { title: "#{bill.name}: #{bill.amount}", action: :view_bill }
+        cellz << { title: "#{bill.name}: #{bill.amount.round(2)}", action: :view_bill }
       end
       cellz
     end

@@ -3,23 +3,40 @@ class OverviewScreen < PM::Screen
 
   def on_load
     self.view.backgroundColor = UIColor.whiteColor
+    bill_total
+    payments_total
     amount_outstanding
     # people_who_owe_money
     # reminder_button
   end
 
-  def amount_outstanding
-    @amount = UILabel.alloc.initWithFrame([[30, 80], [400, 40]])
-    bill_total = 0
+  def bill_total
+    @bill_total = 0
     Bill.each do |bill|
-      bill_total += bill.amount
+      @bill_total += bill.amount
     end
-    payments_total = 0
+    @bill_total = @bill_total.round(2)
+    @bill_label = UILabel.alloc.initWithFrame([[30, 80], [400, 40]])
+    @bill_label.text = "Bills Outstanding: $#{@bill_total}"
+    self.view.addSubview(@bill_label)
+  end
+
+  def payments_total
+    @payments_total = 0
     Payment.each do |payment|
-      payments_total += payment.amount
+      @payments_total += payment.amount
     end
-    @amount.text = "Amount Outstanding: $#{bill_total - payments_total}"
-    self.view.addSubview(@amount)
+    @payments_total = @payments_total.round(2)
+    @pay_label = UILabel.alloc.initWithFrame([[30, 140], [400, 40]])
+    @pay_label.text = "Payments Total: $#{@payments_total}"
+    self.view.addSubview(@pay_label)
+  end
+
+  def amount_outstanding
+    amount_outstanding = (@bill_total - @payments_total).round(2)
+    @amount_label = UILabel.alloc.initWithFrame([[30, 200], [400, 40]])
+    @amount_label.text = "Amount Outstanding: $#{amount_outstanding}"
+    self.view.addSubview(@amount_label)
   end
 
   def people_who_owe_money

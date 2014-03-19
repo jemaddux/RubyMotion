@@ -9,7 +9,7 @@ class PaymentsScreen < ProMotion::GroupedTableScreen
     @cells ||= begin
       cellz = [{ title: "Add payment",  action: :add_payment  }]
       Payment.each do |payment|
-        cellz << { title: "#{payment.amount} paid by Jimmy", action: :view_payment }
+        cellz << { title: "#{payment.amount.round(2)} paid by #{payment.name}", action: :view_payment }
       end
       cellz
     end
